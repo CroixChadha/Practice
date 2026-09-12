@@ -1,0 +1,1 @@
+This repo was created to track my progress on learning python. I am currently following Angela Yu's 100 days of python course and I wanted to keep track of the progress. I also want to be able to see my progress over time with the commit log and such. I will most likely add more here when the need for it arises. 

@@ -21,7 +21,6 @@ for sym in range(0, num_sym):
 for char in range(0, num_chars):
     amount_chars.append(random.choice(characters))
 
-
 non_random = [amount_chars + amount_nums + amount_syms]
 
 print(*non_random, sep='')

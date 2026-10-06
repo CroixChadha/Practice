@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "templates/*.html"
+        ],
+        "createdAt": "2026-10-05T03:25:03.497Z",
+        "reason": "Type hierarchy ratio correct (h1:subtitle 2.8x > 1.25x). Persistent false positive on centered layout."
+      }
+    ]
+  }
+}

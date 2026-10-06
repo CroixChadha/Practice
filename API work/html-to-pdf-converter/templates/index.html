@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to PDF Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1>Convert HTML to PDF,<br><span class="highlight">Instantly.</span></h1>
+                <p class="subtitle">Upload any HTML file and get a weird looking PDF in seconds. No setup required.</p>
+
+                <!-- Demo Visual -->
+                <div class="hero-demo">
+                    <div class="demo-box demo-input">
+                        <div class="demo-icon">📄</div>
+                        <p>HTML File</p>
+                    </div>
+                    <div class="demo-arrow">→</div>
+                    <div class="demo-box demo-output">
+                        <div class="demo-icon">📕</div>
+                        <p>PDF Result</p>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button class="cta-button" onclick="document.getElementById('htmlFile').click()">
+                    <span>Get Started</span>
+                    <span class="arrow">→</span>
+                </button>
+
+                <!-- Social Proof -->
+                <div class="social-proof">
+                    <p class="proof-text">Built by <strong>Croix</strong> • Fast, Reliable, Beautiful</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Instructions Section -->
+        <section class="instructions">
+            <h2>How to use</h2>
+            <div class="instructions-content">
+                <div class="instruction-step">
+                    <h3>Save HTML from the web</h3>
+                    <ol>
+                        <li>Right-click on any webpage in your browser</li>
+                        <li>Select "Save as..." or "Save page as..."</li>
+                        <li>Save as HTML file (.html)</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content: Split Layout -->
+        <div class="content-wrapper">
+            <!-- Input Section (Left) -->
+            <section class="input-section">
+                <h2>Upload HTML File</h2>
+                <form id="uploadForm" class="upload-form">
+                    <div class="file-input-wrapper">
+                        <input
+                            type="file"
+                            id="htmlFile"
+                            name="file"
+                            accept=".html,.htm"
+                            required
+                        >
+                        <label for="htmlFile" class="file-label">
+                            <span class="file-icon">📄</span>
+                            <span class="file-text">Click to select HTML file or drag here</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="convert-btn">Convert to PDF</button>
+                </form>
+                <div id="uploadStatus" class="status-message"></div>
+            </section>
+
+            <!-- Output Section (Right) -->
+            <section class="output-section">
+                <h2>PDF Output</h2>
+                <div id="previewContainer" class="preview-container hidden">
+                    <iframe id="pdfPreview" class="pdf-preview"></iframe>
+                    <div class="output-controls">
+                        <a id="downloadLink" href="#" download="converted.pdf" class="download-btn">
+                            📥 Download PDF
+                        </a>
+                    </div>
+                </div>
+                <div id="noPreview" class="no-preview">
+                    <p>Upload and convert an HTML file to see the PDF preview here</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>About Croix</h3>
+            <p>
+                I'm a developer passionate about building beautiful web applications and learning new technologies.
+                This HTML to PDF converter is a portfolio project to explore Flask APIs, modern JavaScript, and
+                creating polished user experiences. Always exploring, always learning.
+            </p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

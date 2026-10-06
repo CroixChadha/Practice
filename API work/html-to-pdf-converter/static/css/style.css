@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Outfit:wght@500;600;700&family=Fraunces:wght@600;700&family=IBM+Plex+Serif:wght@500;600;700&family=Spectral:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* CHOOSE ONE FONT PAIR (uncomment to test) */
+    /* Option 1: Clean & Modern (Inter) */
+    /* --display: 'Inter', -apple-system, sans-serif;
+    --body: 'Inter', -apple-system, sans-serif; */
+
+    /* Option 2: Warm & Friendly (Poppins + Roboto) */
+    /* --display: 'Poppins', -apple-system, sans-serif;
+    --body: 'Roboto', -apple-system, sans-serif; */
+
+    /* Option 3: Elegant & Modern (Outfit + Inter) */
+    /* --display: 'Outfit', -apple-system, sans-serif;
+    --body: 'Inter', -apple-system, sans-serif; */
+
+    /* Option 4: Bold Modern Serif (Fraunces + Inter) - striking, professional */
+    /* --display: 'Fraunces', serif;
+    --body: 'Inter', -apple-system, sans-serif; */
+
+    /* Option 5: Professional Serif (IBM Plex Serif + Inter) - modern, balanced */
+    /* --display: 'IBM Plex Serif', serif;
+    --body: 'Inter', -apple-system, sans-serif; */
+
+    /* Option 6: Contemporary Serif (Spectral + Inter) - elegant, warm */
+    --display: 'Spectral', serif;
+    --body: 'Inter', -apple-system, sans-serif;
+
+    /* Color Palette: Blanched Almond, Browns, Orange */
+    --accent-orange: #D97706;
+    --accent-orange-dark: #B45309;
+    --brown-dark: #6B4423;
+    --brown-medium: #8B6F47;
+    --brown-light: #D4A574;
+    --cream: #FFFBF5;
+    --white: #FFFFFF;
+    --text-dark: #1F2937;
+    --text-medium: #6B7280;
+    --text-light: #9CA3AF;
+    --border-light: #E5DDD2;
+    --bg-dark: #2C2C2C;
+    --success: #059669;
+    --error: #DC2626;
+}
+
+body {
+    font-family: var(--body);
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes buttonPress {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.98);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes demoFlow {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes float1 {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.05;
+    }
+    50% {
+        transform: translateY(-30px) translateX(20px);
+        opacity: 0.1;
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.05;
+    }
+    50% {
+        transform: translateY(30px) translateX(-20px);
+        opacity: 0.08;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes mapShimmer {
+    0%, 100% {
+        opacity: 0.08;
+    }
+    50% {
+        opacity: 0.12;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 50%, var(--bg-dark) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease-in-out infinite, slideInUp 0.8s ease-out;
+    color: var(--cream);
+    padding: 6rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(0deg, transparent 0px, transparent 50px, rgba(200, 200, 200, 0.25) 50px, rgba(200, 200, 200, 0.25) 51px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 50px, rgba(200, 200, 200, 0.25) 50px, rgba(200, 200, 200, 0.25) 51px);
+    animation: mapShimmer 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(107, 68, 35, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+    animation: float2 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-family: var(--display);
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    animation: slideInLeft 0.8s ease-out 0.1s both;
+}
+
+.hero-content h1 .highlight {
+    color: var(--accent-orange);
+    display: inline;
+    font-style: italic;
+}
+
+.hero-content .subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    color: var(--brown-light);
+    font-weight: 400;
+    opacity: 0.95;
+    font-style: italic;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+/* Demo Visual */
+.hero-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: slideInLeft 0.8s ease-out 0.3s both;
+}
+
+.demo-arrow {
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+    animation: demoFlow 1.2s ease-out 0.6s both;
+}
+
+.demo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.demo-input {
+    background: rgba(217, 119, 6, 0.1);
+    border: 2px solid var(--accent-orange);
+}
+
+.demo-output {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid var(--success);
+}
+
+.demo-icon {
+    font-size: 2rem;
+}
+
+.demo-box p {
+    font-family: var(--display);
+    font-size: 0.9rem;
+    color: var(--cream);
+    font-weight: 600;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+.cta-button:hover {
+    background: var(--accent-orange-dark);
+    transform: translateY(-3px);
+}
+
+.cta-button:active {
+    animation: buttonPress 0.3s ease-in-out;
+}
+
+.cta-button .arrow {
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* Social Proof */
+.social-proof {
+    animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+.proof-text {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Instructions */
+.instructions {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-light);
+}
+
+h2 {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--brown-dark);
+}
+
+.instructions h2 {
+    color: var(--brown-dark);
+    margin-bottom: 1.5rem;
+}
+
+.instruction-step h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.instruction-step ol {
+    margin-left: 1.5rem;
+    color: var(--text-light);
+}
+
+.instruction-step li {
+    margin-bottom: 0.5rem;
+}
+
+/* Content Wrapper - Split Layout */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Input Section */
+.input-section,
+.output-section {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+}
+
+.input-section h2,
+.output-section h2 {
+    color: var(--brown-dark);
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+/* File Upload */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.file-input-wrapper {
+    position: relative;
+}
+
+#htmlFile {
+    display: none;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    border: 2px dashed var(--border-light);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--cream);
+}
+
+.file-label:hover {
+    border-color: var(--accent-orange);
+    background: rgba(217, 119, 6, 0.04);
+}
+
+.file-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.file-text {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+/* Buttons */
+.convert-btn {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.convert-btn:hover {
+    background: var(--accent-orange-dark);
+    transform: translateY(-2px);
+}
+
+.convert-btn:active {
+    animation: buttonPress 0.3s ease-in-out;
+}
+
+.convert-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Status Messages */
+.status-message {
+    min-height: 20px;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.status-message.success {
+    color: var(--success);
+}
+
+.status-message.error {
+    color: var(--error);
+}
+
+.status-message.loading {
+    color: var(--accent-orange);
+}
+
+/* Output Section */
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preview-container.hidden {
+    display: none;
+}
+
+.pdf-preview {
+    width: 100%;
+    height: 500px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.output-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.download-btn {
+    background: var(--success);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    background: #047857;
+    transform: translateY(-1px);
+}
+
+.no-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--text-medium);
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    background: var(--bg-dark);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(0deg, transparent 0px, transparent 50px, rgba(200, 200, 200, 0.25) 50px, rgba(200, 200, 200, 0.25) 51px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 50px, rgba(200, 200, 200, 0.25) 50px, rgba(200, 200, 200, 0.25) 51px);
+    animation: mapShimmer 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-content h3 {
+    margin-bottom: 1rem;
+    color: var(--brown-light);
+}
+
+.footer-content p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-content .subtitle {
+        font-size: 1rem;
+    }
+
+    .pdf-preview {
+        height: 300px;
+    }
+}

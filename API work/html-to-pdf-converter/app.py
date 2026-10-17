@@ -17,6 +17,8 @@ def index():
 def upload():
     # TODO 1: Get the JSON data from the request using request.get_json()
     # Store it in a variable (e.g., data)
+    data = request.get_json()
+    
 
     # TODO 2: Extract the 'html' field from the JSON data
     # Make sure it exists, otherwise return error 400

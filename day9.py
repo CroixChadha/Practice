@@ -15,5 +15,6 @@ grades = {
 student_grades = {}
 
 for key in student_scores:
-    student_grades = student_scores[key] + grades[student_scores]
+    if student_scores[student_scores] in grades[key]:
+        print(student_scores[key])
     print(student_grades)
